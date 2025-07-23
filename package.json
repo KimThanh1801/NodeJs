@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
+    "beautiful":"lint-staged",
     "start": "nodemon --inspect src/index.js",
-"watch": "sass --watch src/resource/scss:src/resource/public/css"
+    "watch": "sass --watch src/resource/scss:src/resource/public/css"
   },
   "repository": {
     "type": "git",
@@ -19,13 +20,19 @@
     "url": "https://github.com/KimThanh1801/NodeJs/issues"
   },
   "homepage": "https://github.com/KimThanh1801/NodeJs#readme",
+  "lint-staged":{"src/**/*.{js,json,scss}":"prettier --single-quote --trailing-comma all --tab-width 4 --write"},
+
+  
   "description": "",
   "dependencies": {
     "express": "^5.1.0",
     "sass": "^1.89.2"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
   }
 }
