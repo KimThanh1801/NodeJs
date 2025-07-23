@@ -43,11 +43,10 @@ app.engine(
         partialsDir: partialsPath,
     }),
 );
-const test = 123;
 app.set('view engine', 'hbs');
 // Đặt view engine mặc định là handlebars (.hbs)
 
-app.set('   views', path.join(__dirname, 'resource', 'views'));
+app.set('views', path.join(__dirname, 'resource', 'views'));
 // Đường dẫn chứa các file views chính (home.hbs, news.hbs,...)
 console.log('Views Path:', path.join(__dirname, 'resource', 'views'));
 // In ra console để kiểm tra đường dẫn views
