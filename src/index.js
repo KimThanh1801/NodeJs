@@ -39,7 +39,7 @@ console.log('Partials Path:', partialsPath);
 app.engine(
     'hbs',
     exphbs.engine({
-        extname: '.hbs',
+            extname: '.hbs',
         partialsDir: partialsPath,
     }),
 );
@@ -47,23 +47,23 @@ app.engine(
 app.set('view engine', 'hbs');
 // Đặt view engine mặc định là handlebars (.hbs)
 
-app.set('views', path.join(__dirname, 'resource', 'views'));
+app.set('   views', path.join(__dirname, 'resource', 'views'));
 // Đường dẫn chứa các file views chính (home.hbs, news.hbs,...)
 console.log('Views Path:', path.join(__dirname, 'resource', 'views'));
 // In ra console để kiểm tra đường dẫn views
 
-app.use(morgan('combined'));
+app.use(morgan      ('combined'));
 // Sử dụng morgan để log request chi tiết
 
 // Routes init
 route(app);
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render      ('home');
 });
 // Route GET / -> render view home.hbs
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+            console.log(`Example app listening on port ${port}`);
 });
 // Khởi động server, lắng nghe tại port 3000
