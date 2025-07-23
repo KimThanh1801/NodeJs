@@ -4,20 +4,20 @@ const express = require('express');
 const morgan = require('morgan');
 // Import morgan để log request ra console
 
-const path =    require('path');
+const path = require('path');
 // Import thư viện path (hỗ trợ xử lý đường dẫn)
 
 const exphbs = require('express-handlebars');
 // Import express-handlebars để dùng làm view engine
 
-const   app = express();
+const app = express();
 // Khởi tạo app Express
 
 // import route
 const route = require('./routes');
 app.use(
-        express.urlencoded({
-            extended: true,
+    express.urlencoded({
+        extended: true,
     }),
 );
 app.use(express.json());
@@ -26,11 +26,11 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'resource', 'public')));
 // Đường dẫn đến folder chứa partials (header, footer,...)
 const partialsPath = path.join(
-            __dirname,
+    __dirname,
     'resource',
-        'views',
+    'views',
     'layouts',
-     'partials',
+    'partials',
 );
 console.log('Partials Path:', partialsPath);
 // In ra console để kiểm tra đường dẫn partials
@@ -39,11 +39,11 @@ console.log('Partials Path:', partialsPath);
 app.engine(
     'hbs',
     exphbs.engine({
-            extname: '.hbs',
+        extname: '.hbs',
         partialsDir: partialsPath,
     }),
 );
-
+const test = 123;
 app.set('view engine', 'hbs');
 // Đặt view engine mặc định là handlebars (.hbs)
 
@@ -52,18 +52,18 @@ app.set('   views', path.join(__dirname, 'resource', 'views'));
 console.log('Views Path:', path.join(__dirname, 'resource', 'views'));
 // In ra console để kiểm tra đường dẫn views
 
-app.use(morgan      ('combined'));
+app.use(morgan('combined'));
 // Sử dụng morgan để log request chi tiết
 
 // Routes init
 route(app);
 
 app.get('/', (req, res) => {
-    res.render      ('home');
+    res.render('home');
 });
 // Route GET / -> render view home.hbs
 
 app.listen(port, () => {
-            console.log(`Example app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
 // Khởi động server, lắng nghe tại port 3000
