@@ -10,11 +10,18 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 // Import express-handlebars để dùng làm view engine
 
+const methodOverride = require('method-override');
+
 const app = express();
 // Khởi tạo app Express
-
+app.use(methodOverride('_method'));
 // import route
 const route = require('./routes');
+const db = require('./config/db');
+
+// Connect to DB
+db.connect();
+
 app.use(
     express.urlencoded({
         extended: true,
@@ -41,6 +48,11 @@ app.engine(
     exphbs.engine({
         extname: '.hbs',
         partialsDir: partialsPath,
+        helpers: {
+            sum: (a, b) => {
+                return a + b;
+            },
+        },
     }),
 );
 app.set('view engine', 'hbs');
@@ -63,6 +75,6 @@ app.get('/', (req, res) => {
 // Route GET / -> render view home.hbs
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });
 // Khởi động server, lắng nghe tại port 3000
