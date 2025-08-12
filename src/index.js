@@ -10,6 +10,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 // Import express-handlebars để dùng làm view engine
 
+const SortMiddleware = require('../src/app/middleware/SortMiddleware');
+
 const methodOverride = require('method-override');
 
 const app = express();
@@ -49,12 +51,35 @@ app.engine(
         extname: '.hbs',
         partialsDir: partialsPath,
         helpers: {
-            sum: (a, b) => {
-                return a + b;
+            sum: (a, b) => a + b,
+            sortable: (field, sort) => {
+                const sortType = field === sort.column ? sort.type : 'default';
+
+                const icons = {
+                    default: 'oi oi-elevator',
+                    asc: 'oi oi-sort-ascending',
+                    desc: 'oi oi-sort-descending',
+                };
+
+                const types = {
+                    default: 'asc',
+                    asc: 'desc',
+                    desc: 'asc',
+                };
+
+                const icon = icons[sortType];
+                const type = types[sortType];
+
+                return `
+        <a href="?_sort&column=${field}&type=${type}">
+            <span class="${icon}"></span>
+        </a>
+    `;
             },
         },
     }),
 );
+
 app.set('view engine', 'hbs');
 // Đặt view engine mặc định là handlebars (.hbs)
 
@@ -66,8 +91,29 @@ console.log('Views Path:', path.join(__dirname, 'resource', 'views'));
 app.use(morgan('combined'));
 // Sử dụng morgan để log request chi tiết
 
+// Custom middlewares
+app.use(SortMiddleware);
+
 // Routes init
 route(app);
+
+app.get(
+    '/middleware',
+    function (req, res, next) {
+        if (['vethuong', 'vevip'].includes(req.query.ve)) {
+            return next();
+        }
+        // Khi khong cos ve
+        res.status(403).json({
+            message: 'Access denied',
+        });
+    },
+    function (req, res, next) {
+        res.json({
+            message: 'Successfully!',
+        });
+    },
+);
 
 app.get('/', (req, res) => {
     res.render('home');

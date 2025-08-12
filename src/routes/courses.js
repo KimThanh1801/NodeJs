@@ -5,6 +5,7 @@ const courseController = require('../app/controllers/CoursesController');
 
 // Các route tĩnh trước
 router.get('/create', courseController.create);
+
 router.post('/store', courseController.store);
 router.get('/:id/edit', courseController.edit);
 router.post('/handle-form-actions', courseController.handleFormActions);

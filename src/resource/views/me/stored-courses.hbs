@@ -26,9 +26,18 @@
       <tr class="bg-warning text-white">
         <th scope="col">#</th>
         <th scope="col">STT</th>
-        <th scope="col">Tên</th>
-        <th scope="col">Yêu thích</th>
-        <th scope="col">Ngày tạo</th>
+        <th scope="col">
+          Tên Khoa Hoc
+          {{{sortable 'name' _sort}}}
+        </th>
+        <th scope="col">
+          Yêu thích
+          {{{sortable 'favourite' _sort}}}
+        </th>
+        <th scope="col">
+          Ngày tạo
+          {{{sortable 'createdAt' _sort}}}
+          </th>
         <th scope="col">Hành động</th>
       </tr>
     </thead>
@@ -102,7 +111,7 @@
     var checkAllSubmitBtn = $('#btn-check-all-submit');
     var containerForm = document.forms['container-form'];
 
-    // Mở modal xóa 1
+    // Mở modal xóa
     $('#delete-course-modal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget);
       courseId = button.data('id');
