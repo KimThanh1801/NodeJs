@@ -30,7 +30,7 @@ app.use(
     }),
 );
 app.use(express.json());
-const port = 3000;
+const port = process.env.PORT || 3000;
 // Định nghĩa port server sẽ chạy
 app.use(express.static(path.join(__dirname, 'resource', 'public')));
 // Đường dẫn đến folder chứa partials (header, footer,...)
