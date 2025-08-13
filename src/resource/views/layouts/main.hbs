@@ -1,4 +1,3 @@
-<!-- views/layouts/main.hbs -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,15 +18,13 @@
 <body>
     <div class="app">
 
-        {{> header}} <!-- partials/header.hbs nếu có -->
+        {{> header}}
 
         <div class="container mt-4">
-            {{{body}}} <!-- CHỖ ĐỂ NHÚNG NỘI DUNG CỦA FILE KHÁC (search.hbs, home.hbs,...) -->
+            {{{body}}} 
         </div>
 
-        {{!-- <footer class="text-center mt-5">
-            <h2>Footer</h2>
-        </footer> --}}
+       {{> footer}}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

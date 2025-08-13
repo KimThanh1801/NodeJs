@@ -1,30 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">F8 Education</a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+  <div class="collapse navbar-collapse d-flex w-100 justify-content-between align-items-center" id="navbarSupportedContent">
+    <div></div>
 
+    <form class="form-inline" action="/search" method="GET" style="flex-grow:1; max-width: 500px; margin: 0 20px;">
+      <input class="form-control mr-sm-2 w-75" type="search" placeholder="Tìm kiếm khóa học..." name="q" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+    </form>
+    <ul class="navbar-nav">
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-          <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-1/491788778_649590807968338_7283296483705890060_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=100&ccb=1-7&_nc_sid=1d2534&_nc_eui2=AeEA64WOCPk2faGpZzs_6RvXsMZwO79oDDewxnA7v2gMN6J1KyWzJG-fNzjaUhGdk3PFs92obEhBggcxATcpX3MD&_nc_ohc=RL8L3tPeKpQQ7kNvwH5FPYr&_nc_oc=Adk8ghJ6dTBREvVwngmoUuRt7snqAZtj9gSSSQ__8dc8X6BwgoXJ_vEBkq4yRXBDjk0&_nc_zt=24&_nc_ht=scontent.fdad1-4.fna&_nc_gid=5Ged8Ed3sB2QxNi5ewGuig&oh=00_AfVXoSoC4F3xMnIaPZiJiJ8KUaCcVN5AP5F8BxwwEK0j2A&oe=68964D6C" alt="" class="user-avatar">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          <img
+            src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/491788778_649590807968338_7283296483705890060_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEA64WOCPk2faGpZzs_6RvXsMZwO79oDDewxnA7v2gMN6J1KyWzJG-fNzjaUhGdk3PFs92obEhBggcxATcpX3MD&_nc_ohc=EbHCuy-9wMwQ7kNvwEbemzf&_nc_oc=AdkDBrBXaTRLDNv9xEsy1MG1SV7hkvCGGlWe3rlB0QaSmo19x1wPh-PNBhals1dnK5c&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=d5nFOtBziyVAe89av8S-yQ&oh=00_AfUkv_iYzPs5vctf21HQNru429Cd-yGB38RO1k-LNuc3Kg&oe=68A1D36E"
+            alt="" class="user-avatar mr-2" style="width: 32px; height: 32px; border-radius: 50%;">
           Kim Thanh
         </a>
         <div class="dropdown-menu">
-          <a class="nav-link" href="/courses/create">Dang khoc hoc</a>
+          <a class="nav-link" href="/me/stored/courses">Khóa học của tôi</a>
           <div class="dropdown-divider"></div>
-
-          <a class="nav-link" href="/me/stored/courses">Khoa hoc cua toi</a>
-
-          <div class="dropdown-divider"></div>
-          <a class="nav-link" href="/me/stored/news">Bai viet cua toi</a>
-
-          <a class="dropdown-item" href="#">Dang xuat</a>
+          <a class="dropdown-item" href="#">Đăng xuất</a>
         </div>
       </li>
-
     </ul>
+
   </div>
 </nav>

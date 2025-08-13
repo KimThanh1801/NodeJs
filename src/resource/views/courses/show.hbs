@@ -1,21 +1,18 @@
-<div class="mt-4">
-
+<div id="course-wrapper" class="mt-4" style="max-width: 1080px; margin: 0 auto;">
     <div class="row">
         <div class="col-lg-6">
             <button>Xem Ngay</button>
             <ul>
-                <li>{{course.favourite}}</li>
+                <li id="favourite"></li>
             </ul>
         </div>
         <div class="col-lg-6">
-            <h2>{{course.name}}</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}"
+            <h2 id="course-name"></h2>
+            <iframe id="course-video" width="560" height="315" 
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-            <p>{{course.description}}</p>
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p id="course-description"></p>
         </div>
     </div>
-    
 </div>
