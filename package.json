@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "husky install",
     "beautiful": "lint-staged",
-    "start": "nodemon --inspect src/index.js",
+"start": "node src/index.js",
     "watch": "sass --watch src/resource/scss:src/resource/public/css"
   },
   "repository": {
